@@ -5,7 +5,7 @@
 `Prj-123456 - Dies ist ein Projekt` 
 
 ### Attribute eines Eintrag
-* Projekt: `Prj`  
+* Projektkürzel: `Prj`  
 * Issue Nummer: `123456`  
 * Issue ID bzw. Key : `Prj-123456`  
 * Issue Titel : `Dies ist ein Projekt`  
