@@ -52,5 +52,29 @@ namespace Gemini2Git.Test.Objekte
 
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        /// Liest das Git-Attribut zu einem Gemini-Eintrag Projektkürzel_Prj.
+        /// </summary>
+        [TestMethod, TestCategory("Objekte")]
+        public void GeminiEintrag_GitAttribut_Name_für_Projektkürzel()
+        {
+            string projektkürzel = "Prj-12345";
+            GeminiEintrag geminiEintrag = new GeminiEintrag(nummer: null, key: null, projektkürzel: projektkürzel, titel: null);
+
+            string expected = "Prj";
+
+
+
+            System.Reflection.MemberInfo info = typeof(GeminiEintrag);
+            foreach (object attrib in info.GetCustomAttributes(true))
+            {
+                Console.WriteLine(attrib);
+            }
+
+           // string actual = geminiEintrag();
+
+            ///Assert.AreEqual(expected, actual);
+        }
     }
 }
