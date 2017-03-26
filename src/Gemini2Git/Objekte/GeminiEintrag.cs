@@ -52,7 +52,6 @@ namespace Gemini2Git.Objekte
         /// <summary>
         /// Gibt die Schlüssel(Key) eines Gemini-Eintrages zurück
         /// </summary>
-       
         public string Key { get; private set; }
 
         /// <summary>

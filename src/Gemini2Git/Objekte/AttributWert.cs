@@ -7,35 +7,35 @@ using System.Threading.Tasks;
 namespace Gemini2Git.Objekte
 {
     /// <summary>
-    /// Typ von Eigenschaft(Property) und Attribut (Key-Value)
+    /// Typ von Attribut (Key-Value) und Wert 
     /// </summary>
-    public class EigenschaftAttribut
+    public class AttributWert
     {
         /// <summary>
         /// Standardkonstruktor
         /// </summary>
-        private EigenschaftAttribut()
+        private AttributWert()
         { }
 
-           /// <summary>
+        /// <summary>
         /// Konstruktor zum Instanzieren von EigenschaftAttribut 
         /// </summary>
-        /// <param name="eigenschaft">Eigenschaft</param>
         /// <param name="attribut">Attribut</param>
-        public EigenschaftAttribut(string eigenschaft, string attribut)
+        /// <param name="wert">Wert</param>
+        public AttributWert(string attribut, string wert)
         {
-            Eigenschaft = eigenschaft;
             Attribut = attribut;
+            Wert = wert;
         }
 
         /// <summary>
-        /// Attribut
+        /// Attribute
         /// </summary>
         public string Attribut { get; private set; }
 
         /// <summary>
         /// Eigenschaft(Property)
         /// </summary>
-        public string Eigenschaft { get; private set; }
+        public string Wert { get; private set; }
     }
 }

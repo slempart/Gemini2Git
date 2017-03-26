@@ -15,8 +15,14 @@ namespace Gemini2Git.Test.Funktionen
     public class T_AttributHelper
     {
 
-        public class GitAttritbut_Testklasse
+        public class GeminiEintrag_Testklasse
         {
+            public GeminiEintrag_Testklasse(string projektkürzel, string nummer, string titel)
+        {
+                Projektkürzel = projektkürzel;
+                Nummer = nummer;
+                Titel = titel;
+            }
             /// <summary>
             /// Gibt den Nummer eines Gemini-Eintrages zurück
             /// </summary>
@@ -34,6 +40,7 @@ namespace Gemini2Git.Test.Funktionen
             /// </summary>
             public string Titel { get; private set; }
         }
+
         /// <summary>
         /// Liefert die Liste EigenschaftAttribut zu einer Klasse mit Git-Attributen.
         /// </summary>
@@ -46,10 +53,58 @@ namespace Gemini2Git.Test.Funktionen
                                                                                  };
 
 
-            List<EigenschaftAttribut> actual = AttributHelper.Liefere_Liste_Attribute<GitAttritbut_Testklasse>();
+            List<EigenschaftAttribut> actual = AttributHelper.Liefere_Liste_Attribute<GeminiEintrag_Testklasse>();
 
             Equalidator.AreEqual(expected, actual);
         }
 
+        /// <summary>
+        /// Liefert die Liste AttributWert zu einer Klasse mit Git-Attributen.
+        /// </summary>
+        [TestMethod, TestCategory("Funktionen")]
+        public void Liefert_Liste_AttributWert_mit_2_Einträgen()
+        {
+
+            List<AttributWert> expected = new List<AttributWert>() { new AttributWert("<Nummer>", "123456")
+                                                                    , new AttributWert("<Gemini-Projekt>","Prj")
+                                                                   };
+
+
+            GeminiEintrag_Testklasse geminiEintrag = new GeminiEintrag_Testklasse(
+                                                        projektkürzel: "Prj",
+                                                        nummer: "123456",
+                                                        titel: "Dies ist ein Projekt");
+
+            List<EigenschaftAttribut> eigenschaftAttributs = new List<EigenschaftAttribut>() { new EigenschaftAttribut("Nummer", "<Nummer>")
+                                                                                   , new EigenschaftAttribut("Projektkürzel", "<Gemini-Projekt>")
+                                                                                 };
+
+            List<AttributWert> actual = AttributHelper.Liefere_Liste_Werte<GeminiEintrag_Testklasse>(geminiEintrag, eigenschaftAttributs);
+
+            Equalidator.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Ersetzt in der Zeichenkett die Platzhalter aus der Liste AttributWert.
+        /// </summary>
+        [TestMethod, TestCategory("Funktionen")]
+        public void Ersetze_Liste_AttributWert_mit_2_Einträgen()
+        {
+
+            List<AttributWert> attributWert = new List<AttributWert>() { new AttributWert("<Nummer>", "123456")
+                                                                    , new AttributWert("<Gemini-Projekt>","Prj")
+                                                                   };
+
+
+            string expected = "features/issue_123456_Prj";
+
+            string wert = "features/issue_<Nummer>_<Gemini-Projekt>";
+
+
+
+            string actual = AttributHelper.Ersetze_Liste_Werte(wert, attributWert);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

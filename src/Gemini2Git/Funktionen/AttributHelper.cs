@@ -30,5 +30,29 @@ namespace Gemini2Git.Funktionen
 
             return ea;
         }
+
+
+        internal static List<AttributWert> Liefere_Liste_Werte<T>(T geminiEintrag, List<EigenschaftAttribut> eigenschaftAttributs)
+        {
+            List<AttributWert> attributWerts = new List<AttributWert>();
+
+            foreach (EigenschaftAttribut eigenschaftAttribut in eigenschaftAttributs)
+            {
+                string wert = (string)geminiEintrag.GetType().GetProperty(eigenschaftAttribut.Eigenschaft).GetValue(geminiEintrag, null);
+                attributWerts.Add(new AttributWert(eigenschaftAttribut.Attribut, wert));
+            }
+
+            return attributWerts;
+        }
+
+        internal static string Ersetze_Liste_Werte(string wert, List<AttributWert> attributWerts)
+        {
+            foreach (AttributWert attributWert in attributWerts)
+            {
+                wert = wert.Replace(attributWert.Attribut, attributWert.Wert);
+            }
+
+            return wert;
+        }
     }
 }
