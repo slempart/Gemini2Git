@@ -13,7 +13,7 @@ namespace Gemini2Git
     {
 
 
-        internal List<GruppeNameWert> Liefere_Git_Eintraege_für_Kopfzeile(string kopfzeile, string pfadKonfiguration, string filterGruppe)
+        public List<GruppeNameWert> Liefere_Git_Eintraege_für_Kopfzeile(string kopfzeile, string pfadKonfiguration, string filterGruppe)
         {
             List<GruppeNameWert> gruppeNameWerts = new List<GruppeNameWert>();
             // 1. Kopfzeile extrahieren

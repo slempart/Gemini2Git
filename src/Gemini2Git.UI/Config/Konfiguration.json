@@ -1,0 +1,21 @@
+﻿{
+  "gruppen": [
+    {
+      "gruppe": "Branches",
+      "eintraege": [
+        {
+          "name": "features",
+          "wert": "features/issue_<Nummer>_<Gemini-Projekt>"
+        },
+        {
+          "name": "bug",
+          "wert": "bug/issue_<Nummer>_<Gemini-Projekt>"
+        },
+        {
+          "name": "hotfix",
+          "wert": "hotfix/issue_<Nummer>_<Gemini-Projekt>"
+        }
+      ]
+    }
+  ]
+}
