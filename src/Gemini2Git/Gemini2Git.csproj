@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,10 +44,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Funktionen\AttributHelper.cs" />
+    <Compile Include="Funktionen\KonfigHelper.cs" />
+    <Compile Include="Interaktor.cs" />
+    <Compile Include="Models\Eintrag.cs" />
+    <Compile Include="Models\GruppeEintraege.cs" />
+    <Compile Include="Models\Konfig.cs" />
+    <Compile Include="Objekte\AttributWert.cs" />
+    <Compile Include="Objekte\GitAttribut.cs" />
     <Compile Include="Objekte\GeminiEintrag.cs" />
     <Compile Include="Funktionen\Helper.cs" />
     <Compile Include="Objekte\GitEintrag.cs" />
+    <Compile Include="Objekte\EigenschaftAttribut.cs" />
+    <Compile Include="Objekte\GruppeNameWert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\Konfiguration.json" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

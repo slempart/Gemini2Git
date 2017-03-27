@@ -35,11 +35,13 @@ namespace Gemini2Git.Objekte
         /// <summary>
         /// Gibt den Nummer eines Gemini-Eintrages zurück
         /// </summary>
+        [GitAttribut("<Nummer>")]
         public string Nummer { get; private set; }
 
         /// <summary>
         /// Gibt den Projektkürzel eines Gemini-Eintrages zurück
         /// </summary>
+        [GitAttribut("<Gemini-Projekt>")]
         public string Projektkürzel { get; private set; }
 
         /// <summary>
