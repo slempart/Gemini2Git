@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Gemini2Git.Funktionen;
 using Gemini2Git.Objekte;
 using System.Collections.Generic;
+using Gemini2Git.Models;
+using equalidator;
 
 namespace Gemini2Git.Test.Funktionen
 {
@@ -53,7 +55,66 @@ namespace Gemini2Git.Test.Funktionen
             Assert.AreEqual(expected, actual);
         }
 
-        
+        /// <summary>
+        /// Extrahiere aus der Konfiguraton die Gruppennamen
+        /// </summary>
+        [TestMethod, TestCategory("Funktionen")]
+        public void Extrahiere_Gruppen()
+        {
+            List<Gruppe> expected = new List<Gruppe>() { new Gruppe("Branches"),
+                                                         new Gruppe("Pull request")
+                                                         };
+
+            Konfig konfig = new Konfig() { Gruppen = new List<GruppeEintraege>() 
+                                             { new GruppeEintraege() {  Gruppe="Branches", Eintraege = new List<Eintrag>() }
+                                              ,new GruppeEintraege() {  Gruppe="Pull request", Eintraege = new List<Eintrag>() }
+                                             }
+                                            };
+
+            List<Gruppe> actual = Helper.Liefere_Gruppen(konfig);
+
+
+            Equalidator.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Extrahiere aus der Konfiguraton für Branches die GruppeNameWert-Liste
+        /// </summary>
+        [TestMethod, TestCategory("Funktionen")]
+        public void Extrahiere_GruppeNameWert()
+        {
+            List<GruppeNameWert> expected = new List<GruppeNameWert>()
+                                                { new GruppeNameWert("Branches", "features", "features/issue_1233_Prj"),
+                                                  new GruppeNameWert("Branches", "bug", "bug/issue_1277_Prj")
+                                                };
+
+            string filterGruppe = "Branches";
+            List<AttributWert> attributWerts = new List<AttributWert>();
+           
+            Konfig konfig = new Konfig()
+            {
+                Gruppen = new List<GruppeEintraege>()
+                                             { new GruppeEintraege()
+                                                        {  Gruppe="Branches", Eintraege = new List<Eintrag>()
+                                                            { new Eintrag() { Name = "features", Wert = "features/issue_1233_Prj" }
+                                                              ,new Eintrag() { Name = "bug", Wert = "bug/issue_1277_Prj" } }
+                                                        }
+                                              ,new GruppeEintraege()
+                                                       {  Gruppe="Pull request", Eintraege = new List<Eintrag>()
+                                                            { new Eintrag() { Name = "features", Wert = "features/issue_1244_Prj" }
+                                                              ,new Eintrag() { Name = "bug", Wert = "bug/issue_1255_Prj" } }
+                                                        }
+                                                       
+                                             }
+            };
+
+            List<GruppeNameWert> actual = Helper.Liefere_GruppeNameWert(filterGruppe, attributWerts, konfig);
+
+
+            Equalidator.AreEqual(expected, actual);
+        }
+
+
 
 
 

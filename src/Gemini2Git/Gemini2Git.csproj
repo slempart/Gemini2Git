@@ -56,11 +56,14 @@
     <Compile Include="Funktionen\Helper.cs" />
     <Compile Include="Objekte\GitEintrag.cs" />
     <Compile Include="Objekte\EigenschaftAttribut.cs" />
+    <Compile Include="Objekte\Gruppe.cs" />
     <Compile Include="Objekte\GruppeNameWert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Config\Konfiguration.json" />
+    <None Include="Config\Konfiguration.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

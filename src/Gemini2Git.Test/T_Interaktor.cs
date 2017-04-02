@@ -28,7 +28,33 @@ namespace Gemini2Git.Test
 
 
             Interaktor ia = new Interaktor();
-            var actual = ia.Liefere_Git_Eintraege_für_Kopfzeile(kopfzeile, pfadKonfiguration, filterGruppe);
+
+            List<GruppeNameWert> actual = ia.Liefere_Git_Eintraege_für_Kopfzeile(kopfzeile, pfadKonfiguration, filterGruppe);
+
+            Equalidator.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// Extrahiere die Gruppen
+        /// </summary>
+        [TestMethod, TestCategory("Interaktor")]
+        public void Liefere_Gruppen()
+        {
+            List<Gruppe> expected = new List<Gruppe>()
+                {
+                    new Gruppe("Branches")
+                  , new Gruppe("Pull request")
+                  , new Gruppe("Kommentar")
+                };
+
+            
+            string pfadKonfiguration = "Testdaten/Konfiguration.json";
+            
+
+
+            Interaktor ia = new Interaktor();
+            List<Gruppe> actual = ia.Liefere_Gruppen( pfadKonfiguration);
+
             Equalidator.AreEqual(expected, actual);
         }
     }

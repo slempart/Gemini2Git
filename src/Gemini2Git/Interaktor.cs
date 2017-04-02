@@ -28,19 +28,24 @@ namespace Gemini2Git
             // 4.Konfiguration laden
             Konfig konfig = KonfigHelper.Lade_Konfiguration(pfadKonfiguration);
 
-            // 5.
-            gruppeNameWerts = konfig.Gruppen
-                .Where(w => (w.Gruppe == filterGruppe || filterGruppe == null))
-                .SelectMany(x => x.Eintraege, (parent, child) => 
-                                        new GruppeNameWert(
-                                                   gruppe: parent.Gruppe,
-                                                   name: child.Name,
-                                                   wert: AttributHelper.Ersetze_Liste_Werte(child.Wert, attributWerts)
-                                                   )
-                ).ToList();
+            // 5. Liste laden für Listenanzeige(Gruppe, Name, Wert)
+            gruppeNameWerts = Helper.Liefere_GruppeNameWert(filterGruppe, attributWerts, konfig);
 
-            
             return gruppeNameWerts;
         }
+
+
+        public List<Gruppe> Liefere_Gruppen(string pfadKonfiguration)
+        {
+            List<Gruppe> gruppen = new List<Gruppe>();
+           
+            Konfig konfig = KonfigHelper.Lade_Konfiguration(pfadKonfiguration);
+
+            // 5. Liste laden für Listenanzeige(Gruppe, Name, Wert)
+            gruppen = Helper.Liefere_Gruppen( konfig);
+
+            return gruppen;
+        }
+
     }
 }
