@@ -78,7 +78,7 @@ namespace Gemini2Git.UI
             foreach (Gruppe gruppe in gruppen)
             {
                 y = y + 20;
-                RadioButton rb = new RadioButton() { Text = gruppe.GruppenName, Location = new Point(x, y) , Font = new Font("", 12)};
+                RadioButton rb = new RadioButton() { Text = gruppe.GruppenName, Location = new Point(x, y), Font = new Font("", 12), Size = new Size(width: 120, height:25) };
                 rb.CheckedChanged += RadioButton_CheckedChanged;
                 grpBox.Controls.Add(rb);
             }
