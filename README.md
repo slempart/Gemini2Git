@@ -10,4 +10,4 @@ Helfer für Namenskonvertierung von Gemini zu Git
 
 
 
-[Link](Gemini2Git)
+[Link1](gemini2git)
