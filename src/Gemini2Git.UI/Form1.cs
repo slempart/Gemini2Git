@@ -16,6 +16,7 @@ namespace Gemini2Git.UI
         public Form1()
         {
             InitializeComponent();
+            this.Icon = Gemini2Git.UI.Properties.Resources.Icons;
             lblStatus.Text = "";
         }
 

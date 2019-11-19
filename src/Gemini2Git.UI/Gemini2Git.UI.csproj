@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Config\Konfiguration.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -87,6 +88,15 @@
       <Project>{714d84bf-b092-475c-8155-ef54640152a6}</Project>
       <Name>Gemini2Git</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ffa500-github-48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ffa500-github-32.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

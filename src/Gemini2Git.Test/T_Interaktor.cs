@@ -17,9 +17,9 @@ namespace Gemini2Git.Test
         {
             List<GruppeNameWert> expected = new List<GruppeNameWert>()
                 {
-                    new GruppeNameWert("Branches", "features", "features/issue_123456_Prj")
-                  , new GruppeNameWert("Branches", "bug",  "bug/issue_123456_Prj")
-                  , new GruppeNameWert("Branches", "hotfix",  "hotfix/issue_123456_Prj")
+                    new GruppeNameWert("Branches", "features", "features/issue_123456_prj")
+                  , new GruppeNameWert("Branches", "bug",  "bug/issue_123456_prj")
+                  , new GruppeNameWert("Branches", "hotfix",  "hotfix/issue_123456_prj")
                 };
 
             string kopfzeile = "Prj-123456 - Dies ist ein Projekt";
