@@ -21,15 +21,15 @@
       "gruppe": "Pull request",
       "eintraege": [
         {
-          "name": "features",
-          "wert": "features/issue_<Nummer>_<Gemini-Projekt>"
+          "name": "Erstellen",
+          "wert": "Pull Request für #<Nummer des Issues> - <Titel des Issues>"
         },
         {
-          "name": "bug",
-          "wert": "bug/issue_<Nummer>_<Gemini-Projekt>"
+          "name": "Merge",
+          "wert": "Merge features/issue_<Nummer des Issues> in **develop** mit Pull Request #<Nummer des Pull Request>"
         },
         {
-          "name": "hotfix",
+          "name": "Photfix",
           "wert": "hotfix/issue_<Nummer>_<Gemini-Projekt>"
         }
       ]
@@ -38,16 +38,8 @@
       "gruppe": "Kommentar",
       "eintraege": [
         {
-          "name": "features",
-          "wert": "features/issue_<Nummer>_<Gemini-Projekt>"
-        },
-        {
-          "name": "bug",
-          "wert": "bug/issue_<Nummer>_<Gemini-Projekt>"
-        },
-        {
-          "name": "hotfix",
-          "wert": "hotfix/issue_<Nummer>_<Gemini-Projekt>"
+          "name": "Kommentar",
+          "wert": "#<Nummer> - "
         }
       ]
     }

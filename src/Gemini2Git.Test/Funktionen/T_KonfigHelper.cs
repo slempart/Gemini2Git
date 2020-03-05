@@ -43,7 +43,27 @@ namespace Gemini2Git.Test.Funktionen
                                                     , new Eintrag() {  Name = "bug", Wert = "bug/issue_<Nummer>_<Gemini-Projekt>"}
                                                     , new Eintrag() {  Name = "hotfix", Wert = "hotfix/issue_<Nummer>_<Gemini-Projekt>"}
                                             }
-                                                } }
+                                                }
+                ,new GruppeEintraege() {
+                                              Gruppe = "Pull request"
+                                            , Eintraege = new List<Eintrag>() {
+                                                      new Eintrag() {  Name = "features", Wert = "features/issue_<Nummer>_<Gemini-Projekt>"}
+                                                    , new Eintrag() {  Name = "bug", Wert = "bug/issue_<Nummer>_<Gemini-Projekt>"}
+                                                    , new Eintrag() {  Name = "hotfix", Wert = "hotfix/issue_<Nummer>_<Gemini-Projekt>"}
+                                            }
+                                                }
+                ,
+                new GruppeEintraege()
+                {
+                    Gruppe = "Kommentar"
+                                            ,
+                    Eintraege = new List<Eintrag>() {
+                                                      new Eintrag() {  Name = "features", Wert = "features/issue_<Nummer>_<Gemini-Projekt>"}
+                                                    , new Eintrag() {  Name = "bug", Wert = "bug/issue_<Nummer>_<Gemini-Projekt>"}
+                                                    , new Eintrag() {  Name = "hotfix", Wert = "hotfix/issue_<Nummer>_<Gemini-Projekt>"}
+                                            }
+                }
+            }
             };
 
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using Gemini2Git.Objekte;
+using Gemini2Git.Models;
 
 namespace Gemini2Git.Funktionen
 {
@@ -50,6 +51,30 @@ namespace Gemini2Git.Funktionen
                                         , key: key_titel[0]
                                         , titel: key_titel[1]);
 
+        }
+
+
+        public static List<GruppeNameWert>Liefere_GruppeNameWert(string filterGruppe, List<AttributWert> attributWerts, Konfig konfig)
+        {
+            return konfig.Gruppen
+                            .Where(w => (w.Gruppe == filterGruppe || filterGruppe == null))
+                            .SelectMany(x => x.Eintraege, (parent, child) =>
+                                                    new GruppeNameWert(
+                                                               gruppe: parent.Gruppe,
+                                                               name: child.Name,
+                                                               wert: AttributHelper.Ersetze_Liste_Werte(child.Wert, attributWerts)
+                                                               )
+                            ).ToList();
+        }
+
+
+        public static List<Gruppe> Liefere_Gruppen( Konfig konfig)
+        {
+            return konfig.Gruppen
+                            .Select(x => new Gruppe(
+                                                    gruppenName: x.Gruppe
+                                                    )
+                            ).ToList();
         }
 
     }

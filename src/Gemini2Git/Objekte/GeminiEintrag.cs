@@ -39,14 +39,39 @@ namespace Gemini2Git.Objekte
         public string Nummer { get; private set; }
 
         /// <summary>
+        /// Gibt den Nummer eines Gemini-Eintrages zurück
+        /// </summary>
+        [GitAttribut("<Nummer des Issues>")]
+        public string Nummer_2
+        {
+            get
+            {
+                return this.Nummer;
+            }
+        }
+
+        /// <summary>
         /// Gibt den Projektkürzel eines Gemini-Eintrages zurück
         /// </summary>
-        [GitAttribut("<Gemini-Projekt>")]
+
         public string Projektkürzel { get; private set; }
+
+        /// <summary>
+        /// Gibt den Projektkürzel als kleingeschrieben eines Gemini-Eintrages zurück
+        /// </summary>
+        [GitAttribut("<Gemini-Projekt>")]
+        public string Projektkürzel_lower
+        {
+            get
+            {
+                return this.Projektkürzel.ToLower();
+            }
+        }
 
         /// <summary>
         /// Gibt den Titel eines Gemini-Eintrages zurück
         /// </summary>
+        [GitAttribut("<Titel des Issues>")]
         public string Titel { get; private set; }
 
         /// <summary>

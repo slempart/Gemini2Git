@@ -16,6 +16,40 @@
           "wert": "hotfix/issue_<Nummer>_<Gemini-Projekt>"
         }
       ]
+    },
+    {
+      "gruppe": "Pull request",
+      "eintraege": [
+        {
+          "name": "features",
+          "wert": "features/issue_<Nummer>_<Gemini-Projekt>"
+        },
+        {
+          "name": "bug",
+          "wert": "bug/issue_<Nummer>_<Gemini-Projekt>"
+        },
+        {
+          "name": "hotfix",
+          "wert": "hotfix/issue_<Nummer>_<Gemini-Projekt>"
+        }
+      ]
+    }
+    ,{
+      "gruppe": "Kommentar",
+      "eintraege": [
+        {
+          "name": "features",
+          "wert": "features/issue_<Nummer>_<Gemini-Projekt>"
+        },
+        {
+          "name": "bug",
+          "wert": "bug/issue_<Nummer>_<Gemini-Projekt>"
+        },
+        {
+          "name": "hotfix",
+          "wert": "hotfix/issue_<Nummer>_<Gemini-Projekt>"
+        }
+      ]
     }
   ]
 }
